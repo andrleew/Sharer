@@ -1,0 +1,78 @@
+#:kivy 2.0.0
+
+<LoginActivity>:
+    MDBoxLayout:
+        id: login_window
+        orientation: 'vertical'
+        rows: 3
+        padding: root.width * .3, root.height * .4
+        spacing: 16
+    
+    
+        MDBoxLayout:
+            spacing: 8
+
+            MDTextField:
+                id: login
+                hint_text: 'login'
+                size_hint_min: .3, .1
+                multiline: False
+                password: False
+    
+        MDBoxLayout:
+            spacing: 8
+
+            MDTextField:
+                id: password
+                hint_text: 'password'
+                size_hint_min: .3, .1
+                multiline: False
+                password: True
+    
+        AnchorLayout:
+            anchor_x: 'center'
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 16
+
+                AnchorLayout:
+                    anchor_x: 'left'
+                    MDRoundFlatButton:
+                        id: sign_in
+                        text: 'Sign In'
+
+                AnchorLayout:
+                    anchor_x: 'right'
+                    MDRoundFlatButton:
+                        id: sign_up
+                        text: 'Sign Up'
+
+
+<FileCard>:
+    padding: 16
+    size_hint: None, None
+    style: 'outlined'
+    size: "200dp", "100dp"
+    md_bg_color: .61, .91, 1, .5
+    line_color: 0.2, 0.2, 0.2, 0.8
+    radius: 8
+
+    MDRelativeLayout:
+        size_hint: None, None
+        size: root.size
+
+        MDIconButton:
+            icon: "dots-vertical"
+            pos:
+                root.width - (self.width + root.padding[0] + dp(4)), root.height - (self.height + root.padding[0] + dp(4))
+
+        MDLabel:
+            id: card_text
+            adaptive_size: True
+
+<MainActivity>:
+    ScrollView:
+        MDStackLayout:
+            padding: 16
+            spacing: 8
+            id: cards_layout
